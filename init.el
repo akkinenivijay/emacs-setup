@@ -1,7 +1,7 @@
 (require 'package)
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
   '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives 
+(add-to-list 'package-archives
   '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
@@ -24,7 +24,6 @@
 (dolist (p my-packages)
   (unless (package-installed-p p)
     (package-install p))
-  (print "installing ")
   )
 
 (package-initialize)
