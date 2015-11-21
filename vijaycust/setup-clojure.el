@@ -1,24 +1,34 @@
+(setq cider-overlays-use-font-lock t)
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
+
 ;;
 ;; ParEdit Settings
-;;
-
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+
+;; eldoc-mode shows documentation in the minibuffer when writing code
+;; http://www.emacswiki.org/emacs/ElDoc
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
 ;;
 ;; Clojure Settings
 ;;
 (require 'clojure-mode-extra-font-locking)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook #'subword-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
-; syntax hilighting for midje
+; syntax highlighting for midje
 (add-hook 'clojure-mode-hook
           (lambda ()
             (setq inferior-lisp-program "lein repl")

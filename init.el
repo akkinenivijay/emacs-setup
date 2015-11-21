@@ -15,9 +15,11 @@
     clojure-mode
     clojure-mode-extra-font-locking
     smex
+    company
     markdown-mode
     rainbow-delimiters
     dash
+    helm-core
     exec-path-from-shell
     gitignore-mode
     yaml-mode
@@ -37,6 +39,9 @@
 
 (package-initialize)
 
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 (setq user-full-name "Vijay Akkineni"
       user-mail-address "vijay.akkineni@weather.com")
 
@@ -44,12 +49,14 @@
 (load "setup-clojure.el")
 (load "theme.el")
 (load "ido.el")
+(load "editing.el")
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH")
   )
 
+(require 'helm)
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
