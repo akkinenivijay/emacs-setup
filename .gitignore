@@ -3,3 +3,7 @@ auto-save-list
 ido.last
 places
 backups
+.smex-items
+.recentf
+cider-history
+projectile-bookmarks.eld
