@@ -17,7 +17,6 @@
     smex
     markdown-mode
     rainbow-delimiters
-    helm
     dash
     exec-path-from-shell
     gitignore-mode
