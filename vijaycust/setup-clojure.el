@@ -1,16 +1,4 @@
-(setq cider-overlays-use-font-lock t)
-(add-hook 'after-init-hook 'global-company-mode)
-(add-hook 'cider-mode-hook #'company-mode)
-
-;;
-;; ParEdit Settings
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(require 'smartparens-config)
 
 ;; eldoc-mode shows documentation in the minibuffer when writing code
 ;; http://www.emacswiki.org/emacs/ElDoc
@@ -24,7 +12,6 @@
 (require 'clojure-mode-extra-font-locking)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook #'subword-mode)
-(add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
@@ -48,6 +35,8 @@
 ;; provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
+(setq cider-overlays-use-font-lock t)
+
 ;; go right to the REPL buffer when it's finished connecting
 (setq cider-repl-pop-to-buffer-on-connect t)
 
@@ -61,8 +50,8 @@
 ;; Wrap when navigating history.
 (setq cider-repl-wrap-history t)
 
-;; enable paredit in your REPL
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
+;; enable smartparens in your REPL
+(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
 
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))

@@ -10,17 +10,15 @@
 
 (defvar my-packages
   '(better-defaults
-    paredit
+    smartparens
     projectile
     clojure-mode
     clojure-mode-extra-font-locking
     smex
-    company
     markdown-mode
     rainbow-delimiters
     dash
     helm-core
-    exec-path-from-shell
     gitignore-mode
     yaml-mode
     ido-ubiquitous
@@ -50,11 +48,6 @@
 (load "theme.el")
 (load "ido.el")
 (load "editing.el")
-
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH")
-  )
 
 (require 'helm)
 (require 'uniquify)
