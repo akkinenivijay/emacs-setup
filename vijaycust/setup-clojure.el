@@ -12,9 +12,11 @@
 ;;
 ;; Clojure Settings
 ;;
+(require 'clojure-mode-extra-font-locking)
 (add-hook 'clojure-mode-hook #'subword-mode)
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 
 ; syntax hilighting for midje
 (add-hook 'clojure-mode-hook

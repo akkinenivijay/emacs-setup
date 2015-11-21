@@ -13,6 +13,16 @@
     paredit
     projectile
     clojure-mode
+    clojure-mode-extra-font-locking
+    smex
+    markdown-mode
+    rainbow-delimiters
+    helm
+    dash
+    exec-path-from-shell
+    gitignore-mode
+    yaml-mode
+    ido-ubiquitous
     color-theme
     cider
     zenburn-theme
@@ -34,6 +44,20 @@
 (add-to-list 'load-path "~/.emacs.d/vijaycust")
 (load "setup-clojure.el")
 (load "theme.el")
+(load "ido.el")
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH")
+  )
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+(setq recentf-save-file (concat user-emacs-directory ".recentf"))
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 40)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
