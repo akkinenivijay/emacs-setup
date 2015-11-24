@@ -44,6 +44,7 @@
       user-mail-address "vijay.akkineni@weather.com")
 
 (add-to-list 'load-path "~/.emacs.d/vijaycust")
+(load "init-smartparens")
 (load "setup-clojure.el")
 (load "theme.el")
 (load "ido.el")
