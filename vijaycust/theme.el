@@ -1,4 +1,5 @@
-(load-theme 'sanityinc-tomorrow-night)
+; (load-theme 'sanityinc-tomorrow-night)
 ; (load-theme 'leuven t)
+(load-theme 'solarized-dark t)
 (setq-default line-spacing 0)
 (set-frame-font "Inconsolata:pixelsize=14")
