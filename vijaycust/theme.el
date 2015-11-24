@@ -1,3 +1,4 @@
-(load-theme 'zenburn)
+(load-theme 'sanityinc-tomorrow-night)
 ; (load-theme 'leuven t)
-(set-frame-font "Menlo:pixelsize=14")
+(setq-default line-spacing 0)
+(set-frame-font "Inconsolata:pixelsize=14")
