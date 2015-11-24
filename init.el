@@ -12,6 +12,7 @@
   '(better-defaults
     smartparens
     projectile
+    company
     clojure-mode
     clojure-mode-extra-font-locking
     smex
@@ -44,6 +45,7 @@
       user-mail-address "vijay.akkineni@weather.com")
 
 (add-to-list 'load-path "~/.emacs.d/vijaycust")
+(global-company-mode)
 (load "init-smartparens")
 (load "setup-clojure.el")
 (load "theme.el")
