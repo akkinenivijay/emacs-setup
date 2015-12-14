@@ -23,6 +23,7 @@
     gitignore-mode
     yaml-mode
     ido-ubiquitous
+    flx-ido
     color-theme
     cider
     zenburn-theme
@@ -47,12 +48,13 @@
       user-mail-address "vijay.akkineni@weather.com")
 
 (add-to-list 'load-path "~/.emacs.d/vijaycust")
-(global-company-mode)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-hook 'after-init-hook 'global-company-mode)
 (load "init-smartparens")
-(load "setup-clojure.el")
-(load "theme.el")
-(load "ido.el")
-(load "editing.el")
+(load "setup-clojure")
+(load "theme")
+(load "ido")
+(load "editing")
 
 (require 'helm)
 (require 'uniquify)

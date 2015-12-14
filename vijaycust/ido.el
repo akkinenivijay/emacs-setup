@@ -1,8 +1,3 @@
-; ido-mode allows you to more easily navigate choices. For example,
-;; when you want to switch buffers, ido presents you with a list
-;; of buffers in the the mini-buffer. As you start to type a buffer's
-;; name, ido will narrow down the list of buffers to match the text
-;; you've typed in
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (ido-mode t)
 
@@ -23,9 +18,13 @@
 ;; This enables ido in all contexts where it could be useful, not just
 ;; for selecting buffer and file names
 (require 'ido-ubiquitous)
+(require 'flx-ido)
+(flx-ido-mode 1)
 (ido-ubiquitous-mode 1)
 (ido-mode 1)
 (ido-everywhere 1)
+(setq ido-use-faces nil)
+(setq gc-cons-threshold 20000000)
 
 ;; Shows a list of buffers
 (global-set-key (kbd "C-x C-b") 'ibuffer)
