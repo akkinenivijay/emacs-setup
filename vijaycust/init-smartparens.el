@@ -42,8 +42,3 @@
 
 (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
 (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
-
-;;(define-key smartparens-mode-map (kbd "C-r") 'sp-forward-slurp-sexp)
-;;(define-key smartparens-mode-map (kbd "C-l") 'sp-forward-barf-sexp)
-;;(define-key smartparens-mode-map (kbd "C-M-l") 'sp-backward-slurp-sexp)
-;;(define-key smartparens-mode-map (kbd "C-M-r") 'sp-backward-barf-sexp)
