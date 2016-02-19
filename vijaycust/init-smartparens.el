@@ -1,3 +1,4 @@
+;; Shamelessly copied from https://github.com/Fuco1/.emacs.d/blob/master/files/smartparens.el
 (require 'smartparens-config)
 (smartparens-global-mode t)
 

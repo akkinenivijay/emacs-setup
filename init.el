@@ -1,8 +1,8 @@
 (require 'package)
 (add-to-list 'package-archives
   '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives
-  '("marmalade" . "http://marmalade-repo.org/packages/"))
+;;(add-to-list 'package-archives
+;;  '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -27,10 +27,17 @@
     color-theme
     cider
     zenburn-theme
+    spacemacs-theme
     solarized-theme
     leuven-theme
     color-theme-sanityinc-tomorrow
     magit
+    scala-mode2
+    ensime
+    sbt-mode
+    auctex
+    company-auctex
+    auctex-latexmk
     )
   )
 
@@ -55,6 +62,7 @@
 (load "theme")
 (load "ido")
 (load "editing")
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (require 'helm)
 (require 'uniquify)
@@ -64,3 +72,7 @@
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 40)
+
+
+;; LATEX PDFLATEX COMMAND
+;; (setq latex-run-command "pdflatex")
