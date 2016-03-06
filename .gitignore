@@ -6,4 +6,6 @@ backups
 .smex-items
 .recentf
 cider-history
+nrepl-history
+recentf
 projectile-bookmarks.eld
