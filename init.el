@@ -38,6 +38,7 @@
 (load-file "~/.emacs.d/config/code-comp.el")
 (load-file "~/.emacs.d/config/parens.el")
 (load-file "~/.emacs.d/config/clojure.el")
+(load-file "~/.emacs.d/config/packages.el")
 
 (provide 'init)
 ;;;
