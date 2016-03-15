@@ -8,4 +8,5 @@ backups
 cider-history
 nrepl-history
 recentf
+var
 projectile-bookmarks.eld
