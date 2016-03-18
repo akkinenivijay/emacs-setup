@@ -1,6 +1,6 @@
 ;;; package --- theming
 ;;; Code:
-;;; Commentary: 
+;;; Commentary:
 (use-package ample-theme        :ensure t :defer t)
 (use-package aurora-theme       :ensure t :defer t)
 (use-package badwolf-theme      :ensure t :defer t)
@@ -20,6 +20,6 @@
 (use-package underwater-theme   :ensure t :defer t)
 (use-package zenburn-theme      :ensure t :defer t)
 
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
 
 (provide 'theme)

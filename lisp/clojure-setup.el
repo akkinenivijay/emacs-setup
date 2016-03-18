@@ -40,6 +40,7 @@
     (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
     (require 'cider-eval-sexp-fu))
   :config
+  (setq cider-repl-shortcut-dispatch-char ?\:)
   (setq cider-repl-result-prefix ";; => ")
   (setq nrepl-buffer-name-separator "-")
   (setq nrepl-buffer-name-show-port t)
