@@ -2,6 +2,8 @@
 ;;; Code:
 ;;; Commentary:
 
+(use-package aggressive-indent :ensure t :defer t)
+
 (defun clj-refactor-hook ()
   (clj-refactor-mode 1)
   (yas-minor-mode 1)
@@ -11,18 +13,11 @@
 (use-package clojure-mode
   :ensure t
   :init
-  (progn
-    (use-package clojure-mode-extra-font-locking
-      :ensure t
-      )
-    (use-package clj-refactor
-      :ensure t
-      )
-    (require 'clojure-mode-extra-font-locking)
-    (require 'clj-refactor)
-    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-    (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
-    (add-hook 'clojure-mode-hook #'clj-refactor-hook)))
+    (use-package clj-refactor :ensure t)
+  :config
+    (add-hook 'clojure-mode-hook #'clj-refactor-hook)
+    (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+)
 
 (use-package cider
   :ensure t
