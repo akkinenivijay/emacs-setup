@@ -7,17 +7,16 @@
 (setq initial-scratch-message nil
       inhibit-startup-message t)
 
-(set-face-attribute 'default nil :font "Inconsolata":height 160)
+(set-default-font "Monaco-16")
 ;;(menu-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
-(setq confirm-kill-emacs 'y-or-n-p)
+;;(setq confirm-kill-emacs 'y-or-n-p)
 
 (use-package smart-mode-line
   :ensure t
   :config
   (progn
     (setq sml/no-confirm-load-theme t)
-    ;;(setq sml/theme 'light)
     (sml/setup)
   )
 )

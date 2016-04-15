@@ -17,9 +17,10 @@
 (use-package soft-morning-theme :ensure t :defer t)
 (use-package solarized-theme    :ensure t :defer t)
 (use-package spacegray-theme    :ensure t :defer t)
+(use-package spacemacs-theme    :ensure t :defer t)
 (use-package underwater-theme   :ensure t :defer t)
 (use-package zenburn-theme      :ensure t :defer t)
 
-(load-theme 'solarized-dark t)
+(load-theme 'spacemacs-dark t)
 
 (provide 'theme)

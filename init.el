@@ -34,11 +34,11 @@
 ;;Emacs visual settings
 (use-package face)
 
-;; Common coding tooling
-(use-package code)
-
 ;; helm config
 (use-package nav)
+
+;; Common coding tooling
+(use-package code)
 
 ;; programming lang config
 (use-package lang)

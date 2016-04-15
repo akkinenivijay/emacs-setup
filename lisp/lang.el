@@ -12,13 +12,5 @@
   :mode ("\\.yml$" . yaml-mode)
   )
 
-;;(use-package yaml-mode
-  ;;:init
-  ;;(require 'yaml-mode)
-  ;;(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-  ;;:ensure t
-  ;;:config
-;;)
-
 (provide 'lang)
 ;;;
