@@ -45,6 +45,16 @@
   (cider-switch-to-last-clojure-buffer)
   (message ""))
 
+(defun cider-figwheel-repl ()
+  (interactive)
+  (save-some-buffers)
+  (with-current-buffer (cider-current-repl-buffer)
+    (goto-char (point-max))
+    (insert "(require 'figwheel-sidecar.repl-api)
+             (figwheel-sidecar.repl-api/start-figwheel!)
+             (figwheel-sidecar.repl-api/cljs-repl)")
+    (cider-repl-return)))
+
 (use-package cider
   :ensure t
   :init
@@ -69,6 +79,7 @@
     (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
     (add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
     (bind-key "C-c C-v" 'cider-send-and-evaluate-sexp)
+    (bind-key "C-c C-f" 'cider-figwheel-repl)
     )
   :config
   (use-package slamhound)

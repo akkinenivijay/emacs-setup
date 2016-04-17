@@ -55,5 +55,11 @@
   (setq company-idle-delay nil)
   (global-set-key (kbd "TAB") #'company-indent-or-complete-common))
 
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode)
+  )
+
 (provide 'code)
 ;;;
