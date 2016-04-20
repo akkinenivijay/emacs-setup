@@ -7,7 +7,7 @@
 (setq initial-scratch-message nil
       inhibit-startup-message t)
 
-(set-default-font "Monaco-16")
+(set-frame-font "DroidSans-16")
 ;;(menu-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;;(setq confirm-kill-emacs 'y-or-n-p)
