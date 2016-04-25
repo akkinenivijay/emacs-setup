@@ -52,7 +52,10 @@
 ;;markdown config
 (use-package mark)
 
-;; Only maximize the window now because doing so earlier causes weird
+;;latex config
+(use-package ltx)
+
+;; only maximize the window now because doing so earlier causes weird
 ;; behaviours.
 (when (display-graphic-p)
   (toggle-frame-maximized))
