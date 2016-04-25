@@ -7,7 +7,8 @@
 (setq initial-scratch-message nil
       inhibit-startup-message t)
 
-(set-frame-font "DroidSans-16")
+(set-frame-font "Consolas-16")
+;;(set-background-color "#000000")
 ;;(menu-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;;(setq confirm-kill-emacs 'y-or-n-p)

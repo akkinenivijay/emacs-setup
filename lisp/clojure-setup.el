@@ -71,6 +71,7 @@
     (setq cider-test-show-report-on-success t)
     (setq cider-stacktrace-fill-column 80)
     (setq cider-stacktrace-default-filters '(tooling dup))
+    (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
     (add-hook 'cider-repl-mode-hook #'eldoc-mode)
     (add-hook 'cider-mode-hook #'eldoc-mode)
     (add-hook 'cider-repl-mode-hook #'company-mode)
