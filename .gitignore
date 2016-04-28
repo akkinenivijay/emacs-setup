@@ -11,3 +11,4 @@ recentf
 var
 projectile-bookmarks.eld
 .nrepl-history
+helm-adaptive-history

@@ -11,20 +11,26 @@
 
 (use-package ag
   :ensure t
-)
-
-(use-package helm
-  :ensure t
-  :bind (
-	 ("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files))
-  :config
-    (require 'helm-config)
-    (helm-mode 1)
-    (helm-autoresize-mode 1)
   )
 
+(use-package helm-config
+  :config
+  (setq helm-buffers-fuzzy-matching t
+	helm-recentf-fuzzy-match    t)
+  (progn
+    (helm-mode 1)
+    (helm-adaptive-mode 1)
+    (helm-autoresize-mode 1)
+    (helm-push-mark-mode 1))
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("M-y" . helm-show-kill-ring)
+	 ("C-x C-d" . helm-browse-project)))
+
 (use-package helm-ag
+  :ensure t)
+
+(use-package helm-ls-git
   :ensure t)
 
 (use-package helm-projectile
@@ -38,6 +44,8 @@
 (use-package helm-descbinds
   :defer t
   :ensure t
+  :config
+  (helm-descbinds-mode)
   :bind
     ("C-h b" . helm-descbinds)
     )
