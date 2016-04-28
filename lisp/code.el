@@ -5,14 +5,20 @@
 (setq show-paren-delay 0) ; show the paren match immediately
 
 ;;smart parenthesis config
-(use-package smartparens
-  :ensure t
+(use-package smartparens-config
+  :ensure smartparens
   :config
-  (require 'smartparens-config)
-  (add-hook 'prog-mode-hook #'smartparens-strict-mode)
   (progn
-      (show-smartparens-global-mode t))
-)
+    (sp-use-smartparens-bindings)
+    (smartparens-global-mode)
+    (show-smartparens-global-mode)
+    )
+  (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-strict-mode)
+  (add-hook 'clojure-mode-hook 'turn-on-smartparens-strict-mode)
+  (add-hook 'cider-repl-mode-hook #'turn-on-smartparens-strict-mode)
+  (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+  (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+  )
 
 (use-package rainbow-delimiters
   :ensure t

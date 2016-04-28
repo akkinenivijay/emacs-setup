@@ -29,6 +29,8 @@
     (add-hook 'clojure-mode-hook 'global-prettify-symbols-mode)
     (add-hook 'clojure-mode-hook #'clj-refactor-hook)
     (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+    (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 )
 
 (defun cider-send-and-evaluate-sexp ()
