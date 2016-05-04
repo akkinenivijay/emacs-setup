@@ -21,6 +21,6 @@
 (use-package underwater-theme   :ensure t :defer t)
 (use-package zenburn-theme      :ensure t :defer t)
 
-(load-theme 'spacemacs-dark t)
+(load-theme 'material t)
 
 (provide 'theme)

@@ -2,6 +2,9 @@
 ;;; Code:
 ;;; Commentary:
 
+(use-package slamhound
+  :ensure t)
+
 (use-package color-identifiers-mode
   :ensure t
   :config
