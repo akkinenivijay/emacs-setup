@@ -2,9 +2,6 @@
 ;;; Code:
 ;;; Commentary:
 
-(use-package slamhound
-  :ensure t)
-
 (use-package color-identifiers-mode
   :ensure t
   :config
@@ -88,7 +85,6 @@
     (bind-key "C-c C-f" 'cider-figwheel-repl)
     )
   :config
-  (use-package slamhound)
   )
 
 (provide 'clojure-setup)

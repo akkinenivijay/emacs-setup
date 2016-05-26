@@ -49,12 +49,6 @@
 (use-package company
   :ensure t
   :init
-  (use-package helm-company
-    :ensure t
-    :config
-    (define-key company-mode-map (kbd "C-:") 'helm-company)
-    (define-key company-active-map (kbd "C-:") 'helm-company)
-    )
   :config
   (add-hook 'after-init-hook 'global-company-mode)
   (add-hook 'prog-mode-hook 'company-mode)

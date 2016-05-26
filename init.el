@@ -5,7 +5,7 @@
 (setq user-mail-address "akkineni.vijay@gmail.com")
 
 ;; This makes my Emacs startup time ~35% faster.
-(setq gc-cons-threshold 100000000)
+(setq gc-cons-threshold 20000000)
 
 ;; Initialize the package system.
 (require 'package)
