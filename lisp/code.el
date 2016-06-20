@@ -4,11 +4,8 @@
 
 (use-package smartparens
   :ensure t
-  :diminish smartparens-mode
-  :config
-  (progn
-    (require 'smartparens-config)
-    (smartparens-global-mode 1)))
+  :init
+  (require 'smartparens-config))
 
 (use-package rainbow-delimiters
   :ensure t

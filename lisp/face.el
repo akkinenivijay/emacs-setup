@@ -7,6 +7,8 @@
 (setq initial-scratch-message nil
       inhibit-startup-message t)
 
+(show-paren-mode 1)
+
 ;; (set-frame-font "Consolas-16")
 ;;(set-background-color "#000000")
 ;;(menu-bar-mode -1)

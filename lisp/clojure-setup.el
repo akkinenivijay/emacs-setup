@@ -4,7 +4,7 @@
 
 (use-package aggressive-indent :ensure t
   :config
-    (global-aggressive-indent-mode 1)
+  (global-aggressive-indent-mode 1)
   :defer t)
 
 (defun clj-refactor-hook ()
@@ -15,17 +15,16 @@
 (use-package clojure-mode
   :ensure t
   :init
-    (use-package clj-refactor
-      :ensure t
-      :diminish clj-refactor-mode)
+  (use-package clj-refactor
+    :ensure t
+    :diminish clj-refactor-mode)
   :config
-    (add-hook 'clojure-mode-hook 'global-prettify-symbols-mode)
-    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-    (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
-    (add-hook 'clojure-mode-hook #'subword-mode)
-    (add-hook 'clojure-mode-hook #'clj-refactor-hook)
-    (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
-)
+  (add-hook 'clojure-mode-hook 'global-prettify-symbols-mode)
+  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+  (add-hook 'clojure-mode-hook #'subword-mode)
+  (add-hook 'clojure-mode-hook #'clj-refactor-hook)
+  (add-hook 'clojure-mode-hook #'aggressive-indent-mode))
 
 (use-package cider
   :ensure t
