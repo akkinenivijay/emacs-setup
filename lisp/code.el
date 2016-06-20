@@ -35,7 +35,9 @@
   (setq company-tooltip-flip-when-above t)
   :config
   (add-hook 'after-init-hook 'global-company-mode)
-  (global-company-mode 1))
+  (add-hook 'prog-mode-hook 'company-mode)
+  (setq company-idle-delay nil)
+  (global-set-key (kbd "TAB") #'company-indent-or-complete-common))
 
 ;; Helps to identify emac key bindings to action mapping.
 (use-package which-key
