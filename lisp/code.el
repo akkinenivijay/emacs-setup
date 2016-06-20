@@ -1,24 +1,14 @@
 ;;; package --- Common coding settings
 ;;; Code:
 ;;; Commentary:
-(show-paren-mode)           ; Automatically highlight parenthesis pairs
-(setq show-paren-delay 0) ; show the paren match immediately
 
-;;smart parenthesis config
-(use-package smartparens-config
-  :ensure smartparens
+(use-package smartparens
+  :ensure t
+  :diminish smartparens-mode
   :config
   (progn
-    (sp-use-smartparens-bindings)
-    (smartparens-global-mode)
-    (show-smartparens-global-mode)
-    )
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-smartparens-strict-mode)
-  (add-hook 'clojure-mode-hook 'turn-on-smartparens-strict-mode)
-  (add-hook 'cider-repl-mode-hook #'turn-on-smartparens-strict-mode)
-  (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-  (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
-  )
+    (require 'smartparens-config)
+    (smartparens-global-mode 1)))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -32,13 +22,6 @@
   :config
   (indent-guide-global-mode))
 
-;;flycheck configuration
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode)
-  )
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;;yasnippets config
 (use-package yasnippet
   :ensure t
@@ -48,13 +31,10 @@
 ;;company completion system
 (use-package company
   :ensure t
-  :init
-  :config
-  (add-hook 'after-init-hook 'global-company-mode)
-  (add-hook 'prog-mode-hook 'company-mode)
-  (setq company-idle-delay nil)
-  (global-set-key (kbd "TAB") #'company-indent-or-complete-common))
+  :defer t
+  :config (global-company-mode))
 
+;; Helps to identify emac key bindings to action mapping.
 (use-package which-key
   :ensure t
   :config

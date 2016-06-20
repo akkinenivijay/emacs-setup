@@ -46,15 +46,6 @@
 ;;clojure configuration
 (use-package clojure-setup)
 
-;;git configuration
-(use-package git)
-
-;;markdown config
-(use-package mark)
-
-;;latex config
-(use-package ltx)
-
 ;; only maximize the window now because doing so earlier causes weird
 ;; behaviours.
 (when (display-graphic-p)
@@ -64,7 +55,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(markdown-command "rdiscount"))
+ '(markdown-command "rdiscount")
+ '(package-selected-packages
+   (quote
+    (clj-refactor clojure-mode aggressive-indent yaml-mode which-key company yasnippet use-package smartparens rainbow-delimiters projectile leuven-theme indent-guide ido-ubiquitous flx-ido))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
