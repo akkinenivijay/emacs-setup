@@ -9,7 +9,7 @@
 
 (show-paren-mode 1)
 
-;; (set-frame-font "Consolas-16")
+(set-frame-font "mononoki-16")
 ;;(set-background-color "#000000")
 ;;(menu-bar-mode -1)
 ;;(defalias 'yes-or-no-p 'y-or-n-p)

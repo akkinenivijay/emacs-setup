@@ -28,8 +28,14 @@
 ;;company completion system
 (use-package company
   :ensure t
-  :defer t
-  :config (global-company-mode))
+  :init
+  (setq company-idle-delay 0.5)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2)
+  (setq company-tooltip-flip-when-above t)
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (global-company-mode 1))
 
 ;; Helps to identify emac key bindings to action mapping.
 (use-package which-key
