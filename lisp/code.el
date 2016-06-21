@@ -5,7 +5,9 @@
 (use-package smartparens
   :ensure t
   :init
-  (require 'smartparens-config))
+  (require 'smartparens-config)
+  :config
+  (smartparens-global-mode 1))
 
 (use-package rainbow-delimiters
   :ensure t
