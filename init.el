@@ -7,58 +7,58 @@
 ;; This makes my Emacs startup time ~35% faster.
 (setq gc-cons-threshold 20000000)
 
-;; Initialize the package system.
-(require 'package)
+(require 'package) 
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
-
-;; Bootstrap `use-package'.
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
-  (require 'diminish)                ;; if you use :diminish
-  (require 'bind-key)                ;; if you use any :bind variant
 
 ;; Add custom code to the load path. `ext' contains Lisp code that I didn't
 ;; write but that is not in melpa, while `lisp' is for List code I wrote.
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path (expand-file-name "ext" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-;;Theme settings
-(use-package theme)
+; list the packages you want
+(setq package-list 
+	'(ido smex ido-ubiquitous flx-ido projectile 
+		smartparens which-key rainbow-delimiters 
+		aggressive-indent highlight-indentation indent-guide
+		company yasnippet
+		clojure-mode clojure-mode-extra-font-locking clj-refactor cider))
 
-;;Emacs visual settings
-(use-package face)
 
-;; helm config
-(use-package nav)
+; activate all the packages
+(package-initialize)
 
-;; Common coding tooling
-(use-package code)
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
 
-;; programming lang config
-(use-package lang)
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
-;;clojure configuration
-(use-package clojure-setup)
+(load "theme")
+(load "face")
+(load "nav")
+(load "code")
+(load "clj-setup")
 
-;; only maximize the window now because doing so earlier causes weird
-;; behaviours.
-(when (display-graphic-p)
-  (toggle-frame-maximized))
+; ;; programming lang config
+; (use-package lang)
+
+; ;;clojure configuration
+; (use-package clojure-setup)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(markdown-command "rdiscount")
  '(package-selected-packages
    (quote
-    (clj-refactor clojure-mode aggressive-indent yaml-mode which-key company yasnippet use-package smartparens rainbow-delimiters projectile leuven-theme indent-guide ido-ubiquitous flx-ido))))
+    (which-key smartparens smex projectile ido-ubiquitous flx-ido))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

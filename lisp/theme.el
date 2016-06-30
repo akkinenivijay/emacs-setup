@@ -1,10 +1,9 @@
 ;;; package --- theming
 ;;; Code:
 ;;; Commentary:
-(use-package leuven-theme
-  :ensure t
-  :defer t)
+
+(setq org-fontify-whole-heading-line t)
   
-(load-theme 'leuven t)
+(load-theme 'dracula t)
 
 (provide 'theme)

@@ -11,6 +11,7 @@ nrepl-history
 recentf
 var
 projectile-bookmarks.eld
+projectile.cache
 .nrepl-history
 helm-adaptive-history
 data

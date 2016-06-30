@@ -6,69 +6,48 @@
   (unless (file-exists-p dir-path)
     (make-directory dir-path t)))
 
-(defcustom ers-projectile-folder "~/.emacs.d/data/projectile"
+(defcustom my-projectile-folder "~/.emacs.d/data/projectile"
   "Projectile folder."
   :type 'directory
-  :group 'emacs-rimero-setup)
+  :group 'emacs-vijay-setup)
 
-(defcustom ers-projectile-cache-filename "projectile.cache"
+(defcustom my-projectile-cache-filename "projectile.cache"
   "Projectile Cache filename"
   :type 'string
-  :group 'emacs-rimero-setup)
+  :group 'emacs-vijay-setup)
 
-(defcustom ers-projectile-bookmarks-filename "projectile-bookmarks.eld"
+(defcustom my-projectile-bookmarks-filename "projectile-bookmarks.eld"
   "Projectile Bookmarks filename"
   :type 'string
-  :group 'emacs-rimero-setup)
+  :group 'emacs-vijay-setup)
 
-(use-package projectile
-  :ensure    projectile
-  :config    (projectile-global-mode t)
-  :init      (progn
-               ;; create projectile data folder if non-existent
-               (mkdir-p ers-projectile-folder)
+;; IDO Mode
+(require 'ido)
+(ido-mode 1)
+(ido-everywhere 1)
 
-               ;; set projectile custom variables
-               (let* ((ers-projectile-dir (file-name-as-directory ers-projectile-folder))
-                      (ers-projectile-cache-file (concat ers-projectile-dir ers-projectile-cache-filename))
-                      (ers-projectile-bookmarks-file (concat ers-projectile-dir ers-projectile-bookmarks-filename)))
-                 (setq projectile-cache-file          ers-projectile-cache-file
-                       projectile-known-projects-file ers-projectile-bookmarks-file
-                       projectile-indexing-method     'alien
-                       projectile-enable-caching      t)))
-  :diminish   projectile-mode)
+;; SMEX Config
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-(use-package ido
-  :ensure t
-  :config
-  (setq ido-enable-prefix nil
-        ido-enable-flex-matching t
-        ido-create-new-buffer 'always
-        ido-use-filename-at-point 'guess
-        ido-max-prospects 10
-        ido-default-file-method 'selected-window
-        ido-auto-merge-work-directories-length -1)
-  (ido-mode +1))
+;; ido-ubiquitous
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
 
-(use-package ido-ubiquitous
-  :ensure t
-  :config
-  (ido-ubiquitous-mode +1))
+;;flx-ido
+(require 'flx-ido)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
-(use-package flx-ido
-  :ensure t
-  :init
-  :config
-  (setq ido-use-faces nil)
-  (flx-ido-mode +1))
-
-  (use-package smex
-    :ensure t
-    :init
-    (smex-initialize)
-    :config
-    (global-set-key (kbd "M-x") 'smex)
-    (global-set-key (kbd "M-X") 'smex-major-mode-commands))
+(require 'projectile)
+(projectile-global-mode)
+(setq projectile-indexing-method 'native)
+(setq projectile-enable-caching t)
 
 (provide 'nav)
 ;;;
