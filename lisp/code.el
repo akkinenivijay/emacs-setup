@@ -27,6 +27,9 @@
 (add-hook 'prog-mode-hook 'company-mode)
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 (company-quickhelp-mode 1)
+;;company flx fuzzy matching
+(with-eval-after-load 'company
+  (company-flx-mode +1))
 
 ;;yasnippet mode
 (yas-global-mode 1)
