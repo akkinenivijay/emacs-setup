@@ -24,7 +24,8 @@
 	'(ido smex ido-ubiquitous flx-ido projectile 
 		smartparens which-key rainbow-delimiters 
 		aggressive-indent highlight-indentation indent-guide
-		company yasnippet company-quickhelp company-flx
+		company yasnippet 
+    ;;company-quickhelp company-flx
 		clojure-mode clojure-mode-extra-font-locking clj-refactor cider))
 
 

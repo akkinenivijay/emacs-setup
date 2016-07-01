@@ -2,6 +2,7 @@
 ;;; Code:
 ;;; Commentary:
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; disables the scratch message
 (setq initial-scratch-message nil
